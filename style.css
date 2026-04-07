@@ -43,8 +43,7 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-violet) #EDE9FE;
+  overflow-x: hidden;
 }
 
 body {
