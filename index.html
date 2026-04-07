@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zeroth Gaming — Official portfolio, social hub, and creator dashboard. Follow, subscribe, and connect." />
+  <title>ZEROTH YT | Creator Portfolio & Social Hub</title>
+  <link rel="icon" type="image/x-icon" href="logo zeroth.PNG">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particles"></canvas>
+
+  <!-- ===================== LAYOUT WRAPPER ===================== -->
+  <div class="layout-wrapper">
+
+    <!-- ========== LEFT SIDEBAR ========== -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- Profile Card -->
+      <div class="profile-card glass-card">
+        <div class="profile-img-wrapper">
+          <img src="logo zeroth.PNG" alt="ZEROTH Gaming Creator" class="profile-img" id="profileImg" />
+          <div class="status-ring"></div>
+          <div class="online-dot"></div>
+        </div>
+
+        <div class="badges">
+          <span class="badge verified"><i class="fas fa-check-circle"></i> Verified</span>
+          <span class="badge creator"><i class="fas fa-fire"></i> Top Creator</span>
+        </div>
+
+        <h1 class="profile-name">ZEROTH YT</h1>
+        <p class="profile-role"> Gaming Video Creator & YouTuber</p>
+
+        <div class="social-icons-row">
+          <a href="https://www.instagram.com/whozeroth" target="_blank" class="social-icon-btn instagram" title="Instagram" id="sidebarInstagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@zeroth_ff" target="_blank" class="social-icon-btn tiktok" title="TikTok" id="sidebarTikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.youtube.com/@zerothyt10" target="_blank" class="social-icon-btn youtube" title="YouTube" id="sidebarYouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://discord.gg/7YnnNcB7RB" target="_blank" class="social-icon-btn discord" title="Discord" id="sidebarDiscord">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Availability Card -->
+      <div class="availability-card glass-card">
+        <div class="avail-dot"></div>
+        <div class="avail-text">
+          <span class="avail-title">Open to Collabs</span>
+          <span class="avail-sub">Sponsorships · Brand Deals · Events</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content" id="mainContent">
+
+      <!-- ---- SECTION: Social Hub ---- -->
+      <section class="section" id="socialHub">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title"><i class="fas fa-layer-group"></i> Social Hub</h2>
+            <p class="section-sub">Connect with my digital universe across all platforms.</p>
+          </div>
+          <span class="section-badge">4 Platforms</span>
+        </div>
+
+        <div class="social-hub-glass glass-card">
+          <div class="social-buttons-grid">
+
+            <a href="https://discord.gg/7YnnNcB7RB" target="_blank" class="social-btn discord-btn" id="discordBtn">
+              <div class="social-btn-icon">
+                <i class="fab fa-discord"></i>
+              </div>
+              <div class="social-btn-content">
+                <span class="social-btn-action">Join DISCORD</span>
+                <span class="social-btn-platform"><strong>Discord</strong></span>
+              </div>
+              <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+              <div class="glow-effect discord-glow"></div>
+            </a>
+
+            <a href="https://www.youtube.com/@zerothyt10" target="_blank" class="social-btn youtube-btn" id="youtubeBtn">
+              <div class="social-btn-icon">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div class="social-btn-content">
+                <span class="social-btn-action">Subscribe Now</span>
+                <span class="social-btn-platform"><strong>YouTube</strong></span>
+              </div>
+              <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+              <div class="glow-effect youtube-glow"></div>
+            </a>
+
+            <a href="https://www.instagram.com/whozeroth" target="_blank" class="social-btn instagram-btn" id="instagramBtn">
+              <div class="social-btn-icon">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <div class="social-btn-content">
+                <span class="social-btn-action">Follow INSTAGRAM</span>
+                <span class="social-btn-platform">Instagram <strong>@whozeroth</strong></span>
+              </div>
+              <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+              <div class="glow-effect instagram-glow"></div>
+            </a>
+
+            <a href="https://www.tiktok.com/@zeroth_ff" target="_blank" class="social-btn tiktok-btn" id="tiktokBtn">
+              <div class="social-btn-icon">
+                <i class="fab fa-tiktok"></i>
+              </div>
+              <div class="social-btn-content">
+                <span class="social-btn-action">Follow Now</span>
+                <span class="social-btn-platform">TikTok <strong>@zeroth_ff</strong></span>
+              </div>
+              <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+              <div class="glow-effect tiktok-glow"></div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ---- SECTION: Official Shop ---- -->
+      <section class="section" id="officialShop">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title"><i class="fas fa-shopping-cart"></i> OFFICIAL SHOP</h2>
+            <p class="section-sub">Premium gaming optimization and advanced editing services.</p>
+          </div>
+          <span class="section-badge creator">AVAILABLE NOW</span>
+        </div>
+
+        <div class="shop-grid">
+          <div class="shop-card glass-card fade-in-item">
+            <div class="shop-card-icon item-pc"><i class="fas fa-microchip"></i></div>
+            <h3 class="shop-card-title">PC OPTIMIZATION MAX</h3>
+            <p class="shop-card-desc">Boost your FPS, reduce input lag, and optimize Windows for peak gaming performance.</p>
+            <div class="shop-card-footer">
+              <span class="item-price">ULTIMATE</span>
+              <a href="https://www.instagram.com/whozeroth" target="_blank" class="shop-card-btn pc-btn">BUY NOW</a>
+            </div>
+          </div>
+
+          <div class="shop-card glass-card luxury-card fade-in-item">
+            <div class="shop-card-icon-mobile item-shorts-red">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="white" style="display: block; margin: auto;">
+                <path d="M17.77 10.32l-1.2-.5 1.205-.534a3.453 3.453 0 001.992-3.132 3.4 3.4 0 00-3.415-3.4 3.535 3.535,0 00-1.78.475L5.645,9.117a3.447,3.447,0 00-1.871,3.082 3.447,3.447,0 001.871,3.082l1.205.534L5.645,16.353a3.423,3.423,0 00-1.871,3.082 3.4 3.4 0 003.415,3.4 3.541,3.541,0 001.78-.475l8.922-5.918a3.447,3.447,0 001.871-3.082 3.332,3.332,0 00-1.1-2.42zM10 14.5v-5l4 2.5-4 2.5z"/>
+              </svg>
+            </div>
+            <div class="luxury-glow-overlay"></div>
+            <h3 class="shop-card-title">YT SHORTS EDITING TIPS</h3>
+            <p class="shop-card-desc">High-end vertical editing using <strong>CapCut × Premiere Pro</strong>.</p>
+            <div class="shop-card-footer">
+              <span class="item-price luxury">ADVANCED</span>
+              <a href="https://www.instagram.com/whozeroth" target="_blank" class="shop-card-btn luxury">BUY NOW</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- SECTION: Live Analytics ---- -->
+      <section class="section" id="analytics">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> Live Network Growth</h2>
+            <p class="section-sub">Real-time stats across all platforms.</p>
+          </div>
+          <span class="section-badge pulse-badge">● LIVE</span>
+        </div>
+
+        <div class="counters-grid">
+
+          <div class="counter-card glass-card" data-target="4700000" data-suffix="M" data-divisor="1000000" id="counterYT">
+            <div class="counter-top">
+              <div class="counter-icon yt-icon"><i class="fab fa-youtube"></i></div>
+              <span class="counter-growth positive">+12% <i class="fas fa-arrow-trend-up"></i></span>
+            </div>
+            <div class="counter-number" data-count="4.7" data-suffix="M">0M</div>
+            <div class="counter-label">YouTube Subscribers</div>
+            <div class="counter-sparkline">
+              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
+                <polyline points="0,25 15,20 30,22 45,12 60,8 80,3" fill="none" stroke="var(--yt-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="counter-card glass-card" data-target="1200000" id="counterIG">
+            <div class="counter-top">
+              <div class="counter-icon ig-icon"><i class="fab fa-instagram"></i></div>
+              <span class="counter-growth positive">+8.5% <i class="fas fa-arrow-trend-up"></i></span>
+            </div>
+            <div class="counter-number" data-count="1.2" data-suffix="M">0M</div>
+            <div class="counter-label">Instagram Followers</div>
+            <div class="counter-sparkline">
+              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
+                <polyline points="0,28 15,22 30,18 45,15 60,10 80,5" fill="none" stroke="var(--ig-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="counter-card glass-card" id="counterViews">
+            <div class="counter-top">
+              <div class="counter-icon views-icon"><i class="fas fa-eye"></i></div>
+              <span class="counter-growth positive">+24% <i class="fas fa-arrow-trend-up"></i></span>
+            </div>
+            <div class="counter-number" data-count="45" data-suffix="M">0M</div>
+            <div class="counter-label">Total Views</div>
+            <div class="counter-sparkline">
+              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
+                <polyline points="0,26 15,22 30,15 45,10 60,6 80,2" fill="none" stroke="var(--views-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="counter-card glass-card" id="counterTT">
+            <div class="counter-top">
+              <div class="counter-icon tt-icon"><i class="fab fa-tiktok"></i></div>
+              <span class="counter-growth positive">+5% <i class="fas fa-arrow-trend-up"></i></span>
+            </div>
+            <div class="counter-number" data-count="250" data-suffix="K">0K</div>
+            <div class="counter-label">TikTok Followers</div>
+            <div class="counter-sparkline">
+              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
+                <polyline points="0,27 15,24 30,20 45,16 60,11 80,7" fill="none" stroke="var(--tt-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ---- SECTION: Collaborate CTA ---- -->
+      <section class="section cta-section" id="collaborate">
+        <div class="cta-card glass-card">
+          <div class="cta-glow"></div>
+          <div class="cta-content">
+            <span class="cta-eyebrow"><i class="fas fa-handshake"></i> Open to Opportunities</span>
+            <h2 class="cta-title">Collaborate with <span class="gradient-text">ZEROTH YT</span></h2>
+            <p class="cta-desc">Currently open for brand sponsorships, esports partnerships, event hosting, and exclusive content collabs. Let's build something epic together.</p>
+            <div class="cta-buttons">
+              <a href="mailto:zerothgaming09@gmail.com" class="cta-primary-btn" id="proposalBtn">
+                <i class="fas fa-paper-plane"></i> Send a Proposal
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61576598806134" target="_blank" class="cta-secondary-btn schedule-call-btn" id="scheduleBtn">
+                <i class="fab fa-facebook"></i> Schedule a Call
+              </a>
+            </div>
+          </div>
+          <div class="cta-decoration">
+            <i class="fas fa-gamepad cta-deco-icon"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-glass">
+          <div class="footer-inner">
+            <div class="footer-brand">
+              <img src="logo zeroth.PNG" alt="ZEROTH" class="footer-logo-img" />
+              <div class="brand-text">
+                <span class="footer-title">ZEROTH YT</span>
+                <span class="footer-social-mini">
+                  <a href="https://www.youtube.com/@zerothyt10" target="_blank"><i class="fab fa-youtube"></i></a>
+                  <a href="https://www.instagram.com/whozeroth" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@zeroth_ff" target="_blank"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://discord.gg/7YnnNcB7RB" target="_blank"><i class="fab fa-discord"></i></a>
+                </span>
+              </div>
+            </div>
+            
+            <div class="footer-copyright">
+              <p>© 2026 ZEROTH YT </p>
+            </div>
+
+            <div class="footer-actions">
+              <div class="footer-links">
+                <a href="#">Media Kit</a>
+                <a href="#">Support</a>
+              </div>
+              <button class="back-to-top" id="backToTop" title="Back to top">
+                <i class="fas fa-chevron-up"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Mobile Nav Bar -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#sidebar" class="mobile-nav-item active" id="navProfile">
+      <i class="fas fa-user"></i>
+      <span>Profile</span>
+    </a>
+    <a href="#socialHub" class="mobile-nav-item" id="navSocial">
+      <i class="fas fa-share-alt"></i>
+      <span>Social</span>
+    </a>
+    <a href="#officialShop" class="mobile-nav-item" id="navShop">
+      <i class="fas fa-shopping-cart"></i>
+      <span>Shop</span>
+    </a>
+    <a href="#analytics" class="mobile-nav-item" id="navStats">
+      <i class="fas fa-chart-line"></i>
+      <span>Stats</span>
+    </a>
+
+    <a href="#collaborate" class="mobile-nav-item" id="navConnect">
+      <i class="fas fa-handshake"></i>
+      <span>Connect</span>
+    </a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
