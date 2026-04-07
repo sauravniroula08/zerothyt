@@ -1604,3 +1604,63 @@ body {
   .counter-number { font-size: 1.4rem; }
   .cta-title { font-size: 1.25rem; }
 }
+
+/* ---------- Scroll Down Arrow ---------- */
+.scroll-down-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+  text-decoration: none;
+  color: var(--text-dim);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.scroll-down-btn i {
+  width: 42px;
+  height: 42px;
+  background: white;
+  color: var(--accent-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: bounceDown 2s ease-in-out infinite;
+}
+
+.scroll-down-btn:hover {
+  color: var(--text-primary);
+  transform: translateY(2px);
+}
+
+.scroll-down-btn:hover i {
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
+  background: var(--accent-purple);
+  color: white;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* Hide scroll down on large screens sidebar if not needed, but keeps it for mobile */
+@media (min-width: 768px) {
+  .scroll-down-btn {
+    display: none; /* Only show on mobile where sidebar is top section */
+  }
+}
+
+@media (max-width: 767px) {
+  .scroll-down-btn {
+    display: flex;
+  }
+}

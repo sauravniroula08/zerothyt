@@ -347,6 +347,38 @@
   });
 })();
 
+/* ---- Back to Top & Scroll Down Logic ---- */
+(function initNavigationHelpers() {
+  // Back to Top
+  const backToTopBtn = document.getElementById('backToTop');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTopBtn.style.opacity = '1';
+        backToTopBtn.style.pointerEvents = 'auto';
+      } else {
+        backToTopBtn.style.opacity = '0';
+        backToTopBtn.style.pointerEvents = 'none';
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Scroll Down Arrow
+  const scrollDownBtn = document.getElementById('scrollDown');
+  if (scrollDownBtn) {
+    scrollDownBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById('socialHub');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+})();
+
 /* ---- Cursor glow (desktop only) ---- */
 (function initCursorGlow() {
   if (window.matchMedia('(hover: none)').matches) return;
