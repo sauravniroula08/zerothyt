@@ -313,10 +313,12 @@
     const fallback = document.createElement('div');
     fallback.style.cssText = `
       width:110px; height:110px; border-radius:50%;
-      background: linear-gradient(135deg, #7c3aed, #3b82f6);
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
       display:flex; align-items:center; justify-content:center;
-      font-size:2.5rem; font-weight:800; color:#fff;
+      font-size:2.8rem; font-weight:900; color:#fff;
       position:relative; z-index:2;
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+      border: 3px solid rgba(255, 255, 255, 0.2);
     `;
     fallback.textContent = 'Z';
     wrapper.insertBefore(fallback, img);
@@ -396,87 +398,130 @@
   });
 })();
 
-/* ---- Order Form Modal ---- */
-(function initOrderModal() {
-  const overlay    = document.getElementById('orderModal');
-  const closeBtn   = document.getElementById('orderModalClose');
-  const doneBtn    = document.getElementById('orderDoneBtn');
-  const form       = document.getElementById('orderForm');
-  const formView   = document.getElementById('orderFormView');
-  const confirmView= document.getElementById('orderConfirmView');
-  const serviceNameEl = document.getElementById('orderServiceName');
-  const serviceBadgeIcon = document.querySelector('#orderServiceBadge i');
 
-  if (!overlay) return;
+/* ---- Order Modal & Form Submission ---- */
+(function initOrderProcess() {
+  const modal = document.getElementById('orderModal');
+  const closeBtn = document.getElementById('orderModalClose');
+  const orderForm = document.getElementById('orderForm');
+  const formView = document.getElementById('orderFormView');
+  const confirmView = document.getElementById('orderConfirmView');
+  const submitBtn = document.getElementById('orderSubmitBtn');
+  
+  // Elements to update based on selection
+  const serviceBadge = document.getElementById('orderServiceBadge');
+  const serviceNameText = document.getElementById('orderServiceName');
+  
+  // REPLACE THIS URL after deploying the Google Apps Script
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXX/exec';
 
-  const serviceMap = {
-    'pc-btn':  { name: 'PC OPTIMIZATION MAX',    icon: 'fas fa-microchip' },
-    'luxury':  { name: 'YT SHORTS EDITING TIPS', icon: 'fas fa-film' },
-  };
-
-  let currentService = 'PC OPTIMIZATION MAX';
-
-  function openModal(serviceKey) {
-    const svc = serviceMap[serviceKey] || serviceMap['pc-btn'];
-    currentService = svc.name;
-    if (serviceNameEl) serviceNameEl.textContent = svc.name;
-    if (serviceBadgeIcon) serviceBadgeIcon.className = svc.icon;
-
-    form.reset();
-    form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('input-error'));
-    formView.hidden = false;
-    confirmView.hidden = true;
-
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  // Hook BUY NOW buttons
-  document.querySelectorAll('.shop-card-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
+  // Open modal on "BUY NOW" click
+  document.querySelectorAll('.shop-card-btn-premium').forEach(btn => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const key = [...btn.classList].find(c => c !== 'shop-card-btn') || 'pc-btn';
-      openModal(key);
+      
+      // Get service info from the card
+      const card = btn.closest('.shop-card-integrated');
+      const title = card.querySelector('.shop-card-title').textContent;
+      const isPC = title.includes('PC');
+      
+      // Update modal header
+      serviceNameText.textContent = title;
+      serviceBadge.className = `order-service-badge ${isPC ? 'pc' : 'edit'}`;
+      serviceBadge.querySelector('i').className = isPC ? 'fas fa-microchip' : 'fas fa-scissors';
+      
+      // Reset form and show
+      orderForm.reset();
+      formView.hidden = false;
+      confirmView.hidden = true;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scroll
     });
   });
+
+  // Close modal
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    // Reset views after animation
+    setTimeout(() => {
+      formView.hidden = false;
+      confirmView.hidden = true;
+    }, 400);
+  }
 
   closeBtn?.addEventListener('click', closeModal);
-  doneBtn?.addEventListener('click', closeModal);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.getElementById('orderDoneBtn')?.addEventListener('click', closeModal);
+  
+  // Close on outside click
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
 
-  form?.addEventListener('submit', e => {
+  // Form Submission
+  orderForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const nameEl  = document.getElementById('orderName');
-    const emailEl = document.getElementById('orderEmail');
-    const phoneEl = document.getElementById('orderPhone');
-
-    let valid = true;
-    [nameEl, emailEl, phoneEl].forEach(field => {
-      field.classList.remove('input-error');
-      if (!field.value.trim()) { field.classList.add('input-error'); valid = false; }
+    
+    // Basic validation
+    const inputs = orderForm.querySelectorAll('input[required]');
+    let isValid = true;
+    inputs.forEach(input => {
+      if (!input.value.trim()) {
+        input.classList.add('input-error');
+        isValid = false;
+      } else {
+        input.classList.remove('input-error');
+      }
     });
-    if (!valid) { form.querySelector('.input-error')?.focus(); return; }
 
-    // Build confirmation
-    const orderId = 'ZG-' + Date.now().toString(36).toUpperCase().slice(-6);
-    const now = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+    if (!isValid) return;
 
-    document.getElementById('confirmOrderId').textContent  = orderId;
-    document.getElementById('confirmName').textContent     = nameEl.value.trim();
-    document.getElementById('confirmEmail').textContent    = emailEl.value.trim();
-    document.getElementById('confirmPhone').textContent    = phoneEl.value.trim();
-    document.getElementById('confirmService').textContent  = currentService;
-    document.getElementById('confirmTime').textContent     = now;
+    // Loading state
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Processing...';
 
-    formView.hidden = true;
-    confirmView.hidden = false;
-    overlay.querySelector('.order-modal').scrollTop = 0;
+    const formData = new FormData(orderForm);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      notes: formData.get('notes') || 'No additional notes',
+      service: serviceNameText.textContent,
+      timestamp: new Date().toLocaleString(),
+      orderId: 'ZG-' + Math.random().toString(36).substring(2, 8).toUpperCase()
+    };
+
+    try {
+      // Send to Google Apps Script
+      // Note: We use fetch with 'no-cors' if the script doesn't handle CORS, 
+      // but for email notification, a standard POST is better.
+      const response = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Important for Google Apps Script redirects
+        cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      // Update Confirmation View
+      document.getElementById('confirmOrderId').textContent = data.orderId;
+      document.getElementById('confirmName').textContent = data.name;
+      document.getElementById('confirmEmail').textContent = data.email;
+      document.getElementById('confirmPhone').textContent = data.phone;
+      document.getElementById('confirmService').textContent = data.service;
+      document.getElementById('confirmTime').textContent = data.timestamp;
+
+      // Switch views
+      formView.hidden = true;
+      confirmView.hidden = false;
+      
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Something went wrong. Please try again or contact us on Instagram!');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
   });
 })();
-

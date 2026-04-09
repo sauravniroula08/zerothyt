@@ -158,37 +158,50 @@
 
       <!-- ---- SECTION: Official Shop ---- -->
       <section class="section" id="officialShop">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title"><i class="fas fa-shopping-cart"></i> OFFICIAL SHOP</h2>
+        <div class="shop-integrated-wrapper">
+          <header class="shop-integrated-header">
+            <div class="cart-icon-wrapper">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h2 class="section-title">OFFICIAL SHOP</h2>
             <p class="section-sub">Premium gaming optimization and advanced editing services.</p>
-          </div>
-          <span class="section-badge creator">AVAILABLE NOW</span>
-        </div>
+            <span class="section-badge creator">AVAILABLE NOW</span>
+          </header>
 
-        <div class="shop-grid">
-          <div class="shop-card glass-card fade-in-item">
-            <div class="shop-card-icon item-pc"><i class="fas fa-microchip"></i></div>
-            <h3 class="shop-card-title">PC OPTIMIZATION MAX</h3>
-            <p class="shop-card-desc">Boost your FPS, reduce input lag, and optimize Windows for peak gaming performance.</p>
-            <div class="shop-card-footer">
-              <span class="item-price">ULTIMATE</span>
-              <a href="https://www.instagram.com/iamzeroth" target="_blank" class="shop-card-btn pc-btn">BUY NOW</a>
+          <div class="shop-grid-premium">
+            <!-- PC Optimization -->
+            <div class="shop-card-integrated">
+              <div class="card-top">
+                <div class="card-icon pc-icon">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <div class="pill-badge orange">ULTIMATE</div>
+                <div class="pill-badge price-tag">$10</div>
+              </div>
+              <h3 class="shop-card-title">PC OPTIMIZATION MAX</h3>
+              <p class="shop-card-desc">Boost your FPS, reduce input lag, and optimize Windows for peak gaming performance.</p>
+              <div class="card-footer">
+                <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?usp=pp_url&entry.SERVICE_ID=PC+OPTIMIZATION+MAX+(Ultimate)" target="_blank" class="shop-card-btn-premium">
+                  <i class="fas fa-shopping-cart"></i> BUY NOW
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="shop-card glass-card luxury-card fade-in-item">
-            <div class="shop-card-icon-mobile item-shorts-red">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="white" style="display: block; margin: auto;">
-                <path d="M17.77 10.32l-1.2-.5 1.205-.534a3.453 3.453 0 001.992-3.132 3.4 3.4 0 00-3.415-3.4 3.535 3.535,0 00-1.78.475L5.645,9.117a3.447,3.447,0 00-1.871,3.082 3.447,3.447,0 001.871,3.082l1.205.534L5.645,16.353a3.423,3.423,0 00-1.871,3.082 3.4 3.4 0 003.415,3.4 3.541,3.541,0 001.78-.475l8.922-5.918a3.447,3.447,0 001.871-3.082 3.332,3.332,0 00-1.1-2.42zM10 14.5v-5l4 2.5-4 2.5z"/>
-              </svg>
-            </div>
-            <div class="luxury-glow-overlay"></div>
-            <h3 class="shop-card-title">YT SHORTS EDITING TIPS</h3>
-            <p class="shop-card-desc">High-end vertical editing using <strong>CapCut × Premiere Pro</strong>.</p>
-            <div class="shop-card-footer">
-              <span class="item-price luxury">ADVANCED</span>
-              <a href="https://www.instagram.com/iamzeroth" target="_blank" class="shop-card-btn luxury">BUY NOW</a>
+            <!-- Editing Tips -->
+            <div class="shop-card-integrated">
+              <div class="card-top">
+                <div class="card-icon edit-icon">
+                  <i class="fas fa-scissors"></i>
+                </div>
+                <div class="pill-badge red">ADVANCED</div>
+              </div>
+              <h3 class="shop-card-title">YT SHORTS EDITING TIPS</h3>
+              <p class="shop-card-desc">High-end vertical editing using <strong>CapCut × Premiere Pro</strong>.</p>
+              <div class="card-footer">
+                <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?usp=pp_url&entry.SERVICE_ID=YT+SHORTS+EDITING+TIPS+(Advanced)" target="_blank" class="shop-card-btn-premium">
+                  <i class="fas fa-shopping-cart"></i> BUY NOW
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -277,8 +290,7 @@
             <div class="cta-buttons">
               <a href="mailto:zerothgaming09@gmail.com" class="cta-primary-btn" id="proposalBtn">
                 <i class="fas fa-paper-plane"></i> Send a Proposal
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=61576598806134" target="_blank" class="cta-secondary-btn schedule-call-btn" id="scheduleBtn">
+              </a>              <a href="https://www.facebook.com/profile.php?id=61576598806134" target="_blank" class="cta-secondary-btn schedule-call-btn" id="scheduleBtn">
                 <i class="fab fa-facebook"></i> Schedule a Call
               </a>
             </div>
@@ -362,6 +374,7 @@
           <div class="order-service-badge" id="orderServiceBadge">
             <i class="fas fa-microchip"></i>
             <span id="orderServiceName">PC OPTIMIZATION MAX</span>
+            <div class="modal-price-tag">$10</div>
           </div>
           <h2 class="order-modal-title" id="orderModalTitle">Place Your Order</h2>
           <p class="order-modal-sub">Fill in your details and we'll contact you shortly.</p>
