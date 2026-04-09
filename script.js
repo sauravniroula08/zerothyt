@@ -396,4 +396,87 @@
   });
 })();
 
+/* ---- Order Form Modal ---- */
+(function initOrderModal() {
+  const overlay    = document.getElementById('orderModal');
+  const closeBtn   = document.getElementById('orderModalClose');
+  const doneBtn    = document.getElementById('orderDoneBtn');
+  const form       = document.getElementById('orderForm');
+  const formView   = document.getElementById('orderFormView');
+  const confirmView= document.getElementById('orderConfirmView');
+  const serviceNameEl = document.getElementById('orderServiceName');
+  const serviceBadgeIcon = document.querySelector('#orderServiceBadge i');
+
+  if (!overlay) return;
+
+  const serviceMap = {
+    'pc-btn':  { name: 'PC OPTIMIZATION MAX',    icon: 'fas fa-microchip' },
+    'luxury':  { name: 'YT SHORTS EDITING TIPS', icon: 'fas fa-film' },
+  };
+
+  let currentService = 'PC OPTIMIZATION MAX';
+
+  function openModal(serviceKey) {
+    const svc = serviceMap[serviceKey] || serviceMap['pc-btn'];
+    currentService = svc.name;
+    if (serviceNameEl) serviceNameEl.textContent = svc.name;
+    if (serviceBadgeIcon) serviceBadgeIcon.className = svc.icon;
+
+    form.reset();
+    form.querySelectorAll('input, textarea').forEach(el => el.classList.remove('input-error'));
+    formView.hidden = false;
+    confirmView.hidden = true;
+
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Hook BUY NOW buttons
+  document.querySelectorAll('.shop-card-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const key = [...btn.classList].find(c => c !== 'shop-card-btn') || 'pc-btn';
+      openModal(key);
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeModal);
+  doneBtn?.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  form?.addEventListener('submit', e => {
+    e.preventDefault();
+    const nameEl  = document.getElementById('orderName');
+    const emailEl = document.getElementById('orderEmail');
+    const phoneEl = document.getElementById('orderPhone');
+
+    let valid = true;
+    [nameEl, emailEl, phoneEl].forEach(field => {
+      field.classList.remove('input-error');
+      if (!field.value.trim()) { field.classList.add('input-error'); valid = false; }
+    });
+    if (!valid) { form.querySelector('.input-error')?.focus(); return; }
+
+    // Build confirmation
+    const orderId = 'ZG-' + Date.now().toString(36).toUpperCase().slice(-6);
+    const now = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+
+    document.getElementById('confirmOrderId').textContent  = orderId;
+    document.getElementById('confirmName').textContent     = nameEl.value.trim();
+    document.getElementById('confirmEmail').textContent    = emailEl.value.trim();
+    document.getElementById('confirmPhone').textContent    = phoneEl.value.trim();
+    document.getElementById('confirmService').textContent  = currentService;
+    document.getElementById('confirmTime').textContent     = now;
+
+    formView.hidden = true;
+    confirmView.hidden = false;
+    overlay.querySelector('.order-modal').scrollTop = 0;
+  });
+})();
 

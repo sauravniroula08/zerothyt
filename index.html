@@ -351,6 +351,84 @@
     </a>
   </nav>
 
+  <!-- ===== ORDER FORM MODAL ===== -->
+  <div class="order-modal-overlay" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+    <div class="order-modal glass-card">
+      <button class="order-modal-close" id="orderModalClose" aria-label="Close"><i class="fas fa-times"></i></button>
+
+      <!-- Form View -->
+      <div class="order-form-view" id="orderFormView">
+        <div class="order-modal-header">
+          <div class="order-service-badge" id="orderServiceBadge">
+            <i class="fas fa-microchip"></i>
+            <span id="orderServiceName">PC OPTIMIZATION MAX</span>
+          </div>
+          <h2 class="order-modal-title" id="orderModalTitle">Place Your Order</h2>
+          <p class="order-modal-sub">Fill in your details and we'll contact you shortly.</p>
+        </div>
+        <form class="order-form" id="orderForm" novalidate>
+          <div class="order-form-group">
+            <label for="orderName"><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="orderName" name="name" placeholder="Your full name" required autocomplete="name" />
+          </div>
+          <div class="order-form-group">
+            <label for="orderEmail"><i class="fas fa-envelope"></i> Email Address</label>
+            <input type="email" id="orderEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+          <div class="order-form-group">
+            <label for="orderPhone"><i class="fab fa-whatsapp"></i> WhatsApp / Phone</label>
+            <input type="tel" id="orderPhone" name="phone" placeholder="+977 XXXXXXXXXX" required autocomplete="tel" />
+          </div>
+          <div class="order-form-group">
+            <label for="orderNotes"><i class="fas fa-comment-dots"></i> Additional Notes</label>
+            <textarea id="orderNotes" name="notes" rows="3" placeholder="Any special requirements or questions..."></textarea>
+          </div>
+          <button type="submit" class="order-submit-btn" id="orderSubmitBtn">
+            <i class="fas fa-paper-plane"></i> Submit Order
+          </button>
+        </form>
+      </div>
+
+      <!-- Confirmation View -->
+      <div class="order-confirm-view" id="orderConfirmView" hidden>
+        <div class="confirm-icon-ring">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="confirm-title">Order Received! 🎉</h2>
+        <p class="confirm-sub">Here's your order summary:</p>
+        <div class="confirm-details-card">
+          <div class="confirm-row">
+            <span class="confirm-label"><i class="fas fa-hashtag"></i> Order ID</span>
+            <span class="confirm-value" id="confirmOrderId">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-label"><i class="fas fa-user"></i> Name</span>
+            <span class="confirm-value" id="confirmName">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-label"><i class="fas fa-envelope"></i> Email</span>
+            <span class="confirm-value" id="confirmEmail">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-label"><i class="fab fa-whatsapp"></i> WhatsApp</span>
+            <span class="confirm-value" id="confirmPhone">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-label"><i class="fas fa-box"></i> Service</span>
+            <span class="confirm-value" id="confirmService">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-label"><i class="fas fa-clock"></i> Ordered</span>
+            <span class="confirm-value" id="confirmTime">—</span>
+          </div>
+        </div>
+        <p class="confirm-note">We'll contact you via WhatsApp/Email within <strong>24 hours</strong>. 🙏</p>
+        <button class="order-done-btn" id="orderDoneBtn"><i class="fas fa-home"></i> Back to Site</button>
+      </div>
+
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
