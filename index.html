@@ -15,6 +15,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Preload Critical Logo -->
+  <link rel="preload" as="image" href="logo.png" fetchpriority="high" />
 </head>
 <body>
 
@@ -38,7 +40,7 @@
       <!-- Profile Card -->
       <div class="profile-card glass-card">
         <div class="profile-img-wrapper">
-          <img src="logo.png" alt="ZEROTH Gaming Creator" class="profile-img" id="profileImg" />
+          <img src="logo.png" alt="ZEROTH Gaming Creator" class="profile-img" id="profileImg" width="112" height="112" fetchpriority="high" />
           <div class="status-ring"></div>
           <div class="online-dot"></div>
         </div>
@@ -52,7 +54,7 @@
         <p class="profile-role">5 MILLION ON YT SOON</p>
 
         <div class="social-icons-row">
-          <a href="https://www.instagram.com/whozeroth" target="_blank" class="social-icon-btn instagram" title="Instagram" id="sidebarInstagram">
+          <a href="https://www.instagram.com/iamzeroth" target="_blank" class="social-icon-btn instagram" title="Instagram" id="sidebarInstagram">
             <i class="fab fa-instagram"></i>
           </a>
           <a href="https://www.tiktok.com/@zeroth_ff" target="_blank" class="social-icon-btn tiktok" title="TikTok" id="sidebarTikTok">
@@ -125,13 +127,13 @@
               <div class="glow-effect youtube-glow"></div>
             </a>
 
-            <a href="https://www.instagram.com/whozeroth" target="_blank" class="social-btn instagram-btn" id="instagramBtn">
+            <a href="https://www.instagram.com/iamzeroth" target="_blank" class="social-btn instagram-btn" id="instagramBtn">
               <div class="social-btn-icon">
                 <i class="fab fa-instagram"></i>
               </div>
               <div class="social-btn-content">
                 <span class="social-btn-action">Follow INSTAGRAM</span>
-                <span class="social-btn-platform">Instagram <strong>@whozeroth</strong></span>
+                <span class="social-btn-platform">Instagram <strong>@iamzeroth</strong></span>
               </div>
               <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
               <div class="glow-effect instagram-glow"></div>
@@ -171,7 +173,7 @@
             <p class="shop-card-desc">Boost your FPS, reduce input lag, and optimize Windows for peak gaming performance.</p>
             <div class="shop-card-footer">
               <span class="item-price">ULTIMATE</span>
-              <a href="https://www.instagram.com/whozeroth" target="_blank" class="shop-card-btn pc-btn">BUY NOW</a>
+              <a href="https://www.instagram.com/iamzeroth" target="_blank" class="shop-card-btn pc-btn">BUY NOW</a>
             </div>
           </div>
 
@@ -186,7 +188,7 @@
             <p class="shop-card-desc">High-end vertical editing using <strong>CapCut × Premiere Pro</strong>.</p>
             <div class="shop-card-footer">
               <span class="item-price luxury">ADVANCED</span>
-              <a href="https://www.instagram.com/whozeroth" target="_blank" class="shop-card-btn luxury">BUY NOW</a>
+              <a href="https://www.instagram.com/iamzeroth" target="_blank" class="shop-card-btn luxury">BUY NOW</a>
             </div>
           </div>
         </div>
@@ -292,12 +294,12 @@
         <div class="footer-glass">
           <div class="footer-inner">
             <div class="footer-brand">
-              <img src="logo.png" alt="ZEROTH" class="footer-logo-img" />
+              <img src="logo.png" alt="ZEROTH" class="footer-logo-img" width="40" height="40" loading="lazy" />
               <div class="brand-text">
                 <span class="footer-title">ZEROTH YT</span>
                 <span class="footer-social-mini">
                   <a href="https://www.youtube.com/@zerothyt10" target="_blank"><i class="fab fa-youtube"></i></a>
-                  <a href="https://www.instagram.com/whozeroth" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/iamzeroth" target="_blank"><i class="fab fa-instagram"></i></a>
                   <a href="https://www.tiktok.com/@zeroth_ff" target="_blank"><i class="fab fa-tiktok"></i></a>
                   <a href="https://discord.gg/7YnnNcB7RB" target="_blank"><i class="fab fa-discord"></i></a>
                 </span>

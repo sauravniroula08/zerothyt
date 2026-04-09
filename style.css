@@ -162,6 +162,23 @@ body {
   box-shadow: 0 0 0 2px rgba(220, 39, 67, 0.35), 0 8px 25px rgba(0,0,0,0.12);
 }
 
+/* Instant CSS Fallback for Loading */
+.profile-img-wrapper::before {
+  content: 'Z';
+  position: absolute;
+  inset: 4px; /* Account for img border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 900;
+  border-radius: 50%;
+  z-index: 1; /* Behind the img */
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+}
+
 .status-ring {
   position: absolute;
   inset: -6px;
@@ -211,15 +228,18 @@ body {
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 4px 11px;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px 12px;
   border-radius: var(--radius-pill);
-  font-size: 0.67rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  min-width: 105px; /* Consistent size fix */
+  text-transform: uppercase;
 }
 .badge.verified { color: #059669; background: #ecfdf5; border: 1px solid rgba(16, 185, 129, 0.3); }
-.badge.creator { color: #fff; background: var(--grad-fire); border: none; box-shadow: 0 0 15px rgba(235, 77, 75, 0.4); }
+.badge.creator { color: #fff; background: var(--grad-fire); border: none; box-shadow: 0 4px 12px rgba(235, 77, 75, 0.3); }
 
 /* Name & Role */
 .profile-name {
