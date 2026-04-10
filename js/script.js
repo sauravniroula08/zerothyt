@@ -5,78 +5,7 @@
 
 'use strict';
 
-/* ---- Particle System ---- */
-(function initParticles() {
-  const canvas = document.getElementById('particles');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [], animId;
-
-  const PARTICLE_COUNT = 60;
-  const COLORS = ['rgba(124,58,237,', 'rgba(236,72,153,', 'rgba(167,139,250,', 'rgba(196,181,253,'];
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-
-  function createParticle() {
-    return {
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 1.8 + 0.4,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      alpha: Math.random() * 0.5 + 0.1,
-    };
-  }
-
-  function init() {
-    resize();
-    particles = Array.from({ length: PARTICLE_COUNT }, createParticle);
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.color + p.alpha + ')';
-      ctx.fill();
-
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0) p.x = W;
-      if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H;
-      if (p.y > H) p.y = 0;
-    });
-
-    // Draw lines between nearby particles
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(124,58,237,${0.05 * (1 - dist / 100)})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-    }
-
-    animId = requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', () => { resize(); });
-  init();
-  draw();
-})();
+/* Background Particle System removed */
 
 /* ---- Intersection Observer — Fade in items ---- */
 (function initScrollAnimations() {
@@ -221,41 +150,7 @@
   });
 })();
 
-/* ---- Fiery Embers Generator ---- */
-(function initEmbers() {
-  const container = document.getElementById('emberArea');
-  if (!container) return;
-  
-  function createEmber() {
-    const ember = document.createElement('div');
-    ember.className = 'ember-particle';
-    
-    // Randomize
-    const size = Math.random() * 4 + 2;
-    const startX = Math.random() * 100;
-    const duration = Math.random() * 3 + 4;
-    const delay = Math.random() * 5;
-    
-    ember.style.width = `${size}px`;
-    ember.style.height = `${size}px`;
-    ember.style.left = `${startX}%`;
-    ember.style.animationDuration = `${duration}s`;
-    ember.style.animationDelay = `-${delay}s`; // Negative delay for immediate start
-    
-    container.appendChild(ember);
-    
-    // Cleanup
-    setTimeout(() => {
-      ember.remove();
-      createEmber(); // Replace
-    }, (duration + delay) * 1000);
-  }
-  
-  // Initial spawn
-  for (let i = 0; i < 30; i++) {
-    createEmber();
-  }
-})();
+/* Fiery Embers removed */
 
 /* ---- Shake Keyframe (inject via JS) ---- */
 (function injectKeyframes() {
@@ -381,25 +276,10 @@
   }
 })();
 
-/* ---- Cursor glow (desktop only) ---- */
-(function initCursorGlow() {
-  if (window.matchMedia('(hover: none)').matches) return;
-  const glow = document.createElement('div');
-  glow.style.cssText = `
-    position:fixed; width:300px; height:300px; border-radius:50%;
-    background:radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 70%);
-    pointer-events:none; z-index:0; transition:transform 0.1s ease;
-    transform:translate(-50%, -50%);
-  `;
-  document.body.appendChild(glow);
-  document.addEventListener('mousemove', (e) => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-  });
-})();
+/* Cursor glow removed */
 
 
-/* ---- Order Modal & Form Submission ---- */
+/* ---- Order Modal & Bulletproof Submission ---- */
 (function initOrderProcess() {
   const modal = document.getElementById('orderModal');
   const closeBtn = document.getElementById('orderModalClose');
@@ -408,117 +288,102 @@
   const confirmView = document.getElementById('orderConfirmView');
   const submitBtn = document.getElementById('orderSubmitBtn');
   
-  // Elements to update based on selection
   const serviceBadge = document.getElementById('orderServiceBadge');
   const serviceNameText = document.getElementById('orderServiceName');
+  const servicePriceText = document.getElementById('orderServicePrice');
   
-  // REPLACE THIS URL after deploying the Google Apps Script
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXX/exec';
+  const ADMIN_EMAIL = 'sauravniroula54@gmail.com';
 
-  // Open modal on "BUY NOW" click
   document.querySelectorAll('.shop-card-btn-premium').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // Get service info from the card
-      const card = btn.closest('.shop-card-integrated');
-      const title = card.querySelector('.shop-card-title').textContent;
+      const card = btn.closest('.shop-card-premium-v2');
+      const title = card.querySelector('.card-title').textContent;
       const isPC = title.includes('PC');
+      const priceText = card.querySelector('.curr-price').textContent;
       
-      // Update modal header
       serviceNameText.textContent = title;
+      if (servicePriceText) servicePriceText.textContent = priceText;
       serviceBadge.className = `order-service-badge ${isPC ? 'pc' : 'edit'}`;
-      serviceBadge.querySelector('i').className = isPC ? 'fas fa-microchip' : 'fas fa-scissors';
       
-      // Reset form and show
       orderForm.reset();
       formView.hidden = false;
       confirmView.hidden = true;
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent scroll
+      document.body.style.overflow = 'hidden';
     });
   });
 
-  // Close modal
   function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
-    // Reset views after animation
-    setTimeout(() => {
-      formView.hidden = false;
-      confirmView.hidden = true;
-    }, 400);
   }
 
   closeBtn?.addEventListener('click', closeModal);
   document.getElementById('orderDoneBtn')?.addEventListener('click', closeModal);
-  
-  // Close on outside click
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-  // Form Submission
   orderForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // Basic validation
+    // Validation
     const inputs = orderForm.querySelectorAll('input[required]');
     let isValid = true;
     inputs.forEach(input => {
-      if (!input.value.trim()) {
-        input.classList.add('input-error');
-        isValid = false;
-      } else {
-        input.classList.remove('input-error');
-      }
+      if (!input.value.trim()) { input.classList.add('input-error'); isValid = false; } 
+      else { input.classList.remove('input-error'); }
     });
-
     if (!isValid) return;
 
-    // Loading state
+    // Loading State
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Processing...';
+    submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Dispatching Order...';
 
     const formData = new FormData(orderForm);
+    const orderId = 'ZE' + "123456789ABCDEF".charAt(Math.floor(Math.random() * 15));
+    const timestamp = new Date().toLocaleString();
+
+    // Prepare FormSubmit Data
     const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      notes: formData.get('notes') || 'No additional notes',
-      service: serviceNameText.textContent,
-      timestamp: new Date().toLocaleString(),
-      orderId: 'ZG-' + Math.random().toString(36).substring(2, 8).toUpperCase()
+      "Order ID": orderId,
+      "Service": serviceNameText.textContent,
+      "Amount": servicePriceText.textContent,
+      "Client Name": formData.get('name'),
+      "Email": formData.get('email'),
+      "WhatsApp": formData.get('phone'),
+      "Details": formData.get('notes') || 'None',
+      "Time": timestamp,
+      "_subject": `Order Received: ${orderId} - ${formData.get('name')}`,
+      "_template": "table",
+      "_captcha": "false"
     };
 
     try {
-      // Send to Google Apps Script
-      // Note: We use fetch with 'no-cors' if the script doesn't handle CORS, 
-      // but for email notification, a standard POST is better.
-      const response = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors', // Important for Google Apps Script redirects
-        cache: 'no-cache',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch(`https://formsubmit.co/ajax/${ADMIN_EMAIL}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(data)
       });
 
-      // Update Confirmation View
-      document.getElementById('confirmOrderId').textContent = data.orderId;
-      document.getElementById('confirmName').textContent = data.name;
-      document.getElementById('confirmEmail').textContent = data.email;
-      document.getElementById('confirmPhone').textContent = data.phone;
-      document.getElementById('confirmService').textContent = data.service;
-      document.getElementById('confirmTime').textContent = data.timestamp;
+      if (response.ok) {
+        document.getElementById('confirmOrderId').textContent = orderId;
+        document.getElementById('confirmName').textContent = data["Client Name"];
+        document.getElementById('confirmEmail').textContent = data["Email"];
+        document.getElementById('confirmService').textContent = data["Service"];
+        document.getElementById('confirmTime').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        
+        const confirmPrice = document.getElementById('confirmServicePrice');
+        if (confirmPrice) confirmPrice.textContent = data["Service Price"] || data["Amount"] || servicePriceText.textContent;
 
-      // Switch views
-      formView.hidden = true;
-      confirmView.hidden = false;
-      
+        formView.hidden = true;
+        confirmView.hidden = false;
+      } else {
+        throw new Error("Dispatch failed.");
+      }
     } catch (error) {
-      console.error('Submission error:', error);
-      alert('Something went wrong. Please try again or contact us on Instagram!');
+      console.error('System error:', error);
+      alert('Network Error. Please try again or contact via Instagram.');
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;

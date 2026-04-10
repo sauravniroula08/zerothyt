@@ -20,16 +20,7 @@
 </head>
 <body>
 
-  <!-- Animated Background -->
-  <div class="bg-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="orb orb-4"></div>
-  </div>
-
-  <!-- Particle Canvas -->
-  <canvas id="particles"></canvas>
+  <!-- Background removed for cleaner look -->
 
   <!-- ===================== LAYOUT WRAPPER ===================== -->
   <div class="layout-wrapper">
@@ -37,50 +28,52 @@
     <!-- ========== LEFT SIDEBAR ========== -->
     <aside class="sidebar" id="sidebar">
 
-      <!-- Profile Card -->
-      <div class="profile-card glass-card">
-        <div class="profile-img-wrapper">
-          <img src="img/logo.png" alt="ZEROTH Gaming Creator" class="profile-img" id="profileImg" width="112" height="112" fetchpriority="high" />
-          <div class="status-ring"></div>
-          <div class="online-dot"></div>
+      <!-- Profile Card V2 -->
+      <div class="profile-card-new glass-card">
+        <div class="profile-top">
+          <div class="profile-img-wrapper">
+            <img src="img/logo.png" alt="ZEROTH Gaming" class="profile-img" id="profileImg" width="80" height="80" fetchpriority="high" />
+          </div>
+          <div class="profile-header">
+            <h1 class="profile-name-new">ZEROTH YT</h1>
+            <span class="badge-creator"><i class="fas fa-certificate"></i> V BADGE CREATOR</span>
+          </div>
         </div>
 
-        <div class="badges">
-          <span class="badge verified"><i class="fas fa-check-circle"></i> Verified</span>
-          <span class="badge creator"><i class="fas fa-certificate"></i> V BADGE CREATOR</span>
+        <div class="profile-body">
+          <p class="profile-label">GAMER</p>
+          <p class="profile-bio-new">Nepali Youtuber With 5 Million Subscriber</p>
+          
+          <div class="profile-meta">
+            <div class="meta-item">
+              <i class="fas fa-envelope"></i>
+              <span>@work4zeroth</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Nepal</span>
+            </div>
+          </div>
         </div>
 
-        <h1 class="profile-name">ZEROTH YT</h1>
-        <p class="profile-role">5 MILLION ON YT SOON</p>
-
-        <div class="social-icons-row">
-          <a href="https://www.instagram.com/iamzeroth" target="_blank" class="social-icon-btn instagram" title="Instagram" id="sidebarInstagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.tiktok.com/@zeroth_ff" target="_blank" class="social-icon-btn tiktok" title="TikTok" id="sidebarTikTok">
-            <i class="fab fa-tiktok"></i>
-          </a>
-          <a href="https://www.youtube.com/@zerothyt10" target="_blank" class="social-icon-btn youtube" title="YouTube" id="sidebarYouTube">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="https://discord.gg/7YnnNcB7RB" target="_blank" class="social-icon-btn discord" title="Discord" id="sidebarDiscord">
-            <i class="fab fa-discord"></i>
-          </a>
+        <div class="profile-footer">
+          <span class="footer-text">Connect with me</span>
+          <div class="social-mini-grid">
+            <a href="https://www.instagram.com/iamzeroth" target="_blank" class="mini-social-btn instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://discord.gg/7YnnNcB7RB" target="_blank" class="mini-social-btn discord"><i class="fab fa-discord"></i></a>
+            <a href="https://www.youtube.com/@zerothyt10" target="_blank" class="mini-social-btn youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@zeroth_ff" target="_blank" class="mini-social-btn tiktok"><i class="fab fa-tiktok"></i></a>
+          </div>
         </div>
-
-        <!-- Scroll Down Arrow -->
-        <a href="#socialHub" class="scroll-down-btn" id="scrollDown">
-          <i class="fas fa-chevron-down"></i>
-          <span class="scroll-text">Explore</span>
-        </a>
       </div>
+
 
 
       <!-- Availability Card -->
       <div class="availability-card glass-card">
         <div class="avail-dot"></div>
         <div class="avail-text">
-          <span class="avail-title">Open to Collabs</span>
+          <span class="avail-title">Open to Collaborate</span>
           <span class="avail-sub">Sponsorships · Brand Deals · Events</span>
         </div>
       </div>
@@ -97,110 +90,76 @@
             <h2 class="section-title"><i class="fas fa-layer-group"></i> Social Hub</h2>
             <p class="section-sub">Connect with my digital universe across all platforms.</p>
           </div>
-          <span class="section-badge">4 Platforms</span>
+          <span class="section-badge">4 Platforms active</span>
         </div>
 
         <div class="social-hub-glass glass-card">
           <div class="social-buttons-grid">
-
+            <!-- Buttons as before... -->
             <a href="https://discord.gg/7YnnNcB7RB" target="_blank" class="social-btn discord-btn" id="discordBtn">
-              <div class="social-btn-icon">
-                <i class="fab fa-discord"></i>
-              </div>
-              <div class="social-btn-content">
-                <span class="social-btn-action">Join DISCORD</span>
-                <span class="social-btn-platform"><strong>Discord</strong></span>
-              </div>
-              <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+              <div class="social-btn-icon"><i class="fab fa-discord"></i></div>
+              <div class="social-btn-content"><span class="social-btn-action">Join DISCORD</span><span class="social-btn-platform"><strong>Discord</strong></span></div>
               <div class="glow-effect discord-glow"></div>
             </a>
-
             <a href="https://www.youtube.com/@zerothyt10" target="_blank" class="social-btn youtube-btn" id="youtubeBtn">
-              <div class="social-btn-icon">
-                <i class="fab fa-youtube"></i>
-              </div>
-              <div class="social-btn-content">
-                <span class="social-btn-action">Subscribe Now</span>
-                <span class="social-btn-platform"><strong>YouTube</strong></span>
-              </div>
-              <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+              <div class="social-btn-icon"><i class="fab fa-youtube"></i></div>
+              <div class="social-btn-content"><span class="social-btn-action">Subscribe Now</span><span class="social-btn-platform"><strong>YouTube</strong></span></div>
               <div class="glow-effect youtube-glow"></div>
             </a>
-
             <a href="https://www.instagram.com/iamzeroth" target="_blank" class="social-btn instagram-btn" id="instagramBtn">
-              <div class="social-btn-icon">
-                <i class="fab fa-instagram"></i>
-              </div>
-              <div class="social-btn-content">
-                <span class="social-btn-action">Follow INSTAGRAM</span>
-                <span class="social-btn-platform">Instagram <strong>@iamzeroth</strong></span>
-              </div>
-              <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+              <div class="social-btn-icon"><i class="fab fa-instagram"></i></div>
+              <div class="social-btn-content"><span class="social-btn-action">Follow INSTAGRAM</span><span class="social-btn-platform">Instagram <strong>@iamzeroth</strong></span></div>
               <div class="glow-effect instagram-glow"></div>
             </a>
-
             <a href="https://www.tiktok.com/@zeroth_ff" target="_blank" class="social-btn tiktok-btn" id="tiktokBtn">
-              <div class="social-btn-icon">
-                <i class="fab fa-tiktok"></i>
-              </div>
-              <div class="social-btn-content">
-                <span class="social-btn-action">Follow Now</span>
-                <span class="social-btn-platform">TikTok <strong>@zeroth_ff</strong></span>
-              </div>
-              <div class="social-btn-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+              <div class="social-btn-icon"><i class="fab fa-tiktok"></i></div>
+              <div class="social-btn-content"><span class="social-btn-action">Follow Now</span><span class="social-btn-platform">TikTok <strong>@zeroth_ff</strong></span></div>
               <div class="glow-effect tiktok-glow"></div>
             </a>
-
           </div>
         </div>
       </section>
 
-
       <!-- ---- SECTION: Official Shop ---- -->
-      <section class="section" id="officialShop">
-        <div class="shop-integrated-wrapper">
-          <header class="shop-integrated-header">
-            <div class="cart-icon-wrapper">
-              <i class="fas fa-shopping-cart"></i>
-            </div>
-            <h2 class="section-title">OFFICIAL SHOP</h2>
-            <p class="section-sub">Premium gaming optimization and advanced editing services.</p>
-            <span class="section-badge creator">AVAILABLE NOW</span>
-          </header>
-
+      <section class="section scroll-reveal" id="shop">
+        <div class="shop-container-glass glass-card">
+          <div class="deal-banner">
+            <div class="banner-icon"><i class="fas fa-bolt"></i></div>
+            <div class="banner-text">LIMITED TIME DEAL: PRICING INCREASING TO REGULAR RATES AFTER 5 SALES!</div>
+          </div>
+          <div class="shop-header-premium">
+            <h2 class="section-title-premium-v2">OFFICIAL SHOP <span class="shop-emoji">🛒</span></h2>
+            <div class="shop-status-badge"><span class="status-dot"></span>ACTIVE SERVICES</div>
+          </div>
           <div class="shop-grid-premium">
-            <!-- PC Optimization -->
-            <div class="shop-card-integrated">
-              <div class="card-top">
-                <div class="card-icon pc-icon">
-                  <i class="fas fa-microchip"></i>
-                </div>
-                <div class="pill-badge orange">ULTIMATE</div>
-                <div class="pill-badge price-tag">$10</div>
-              </div>
-              <h3 class="shop-card-title">PC OPTIMIZATION MAX</h3>
-              <p class="shop-card-desc">Boost your FPS, reduce input lag, and optimize Windows for peak gaming performance.</p>
-              <div class="card-footer">
-                <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?usp=pp_url&entry.SERVICE_ID=PC+OPTIMIZATION+MAX+(Ultimate)" target="_blank" class="shop-card-btn-premium">
-                  <i class="fas fa-shopping-cart"></i> BUY NOW
-                </a>
+            <div class="shop-card-premium-v2">
+              <div class="card-image"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=800" alt="PC Setup"><div class="image-badge pc">ULTIMATE</div></div>
+              <div class="card-content-premium-v2">
+                <div class="card-tag">LIMITED TIME OFFER </div>
+                <h3 class="card-title">PC OPTIMIZATION MAX</h3>
+                <div class="price-row-v2"><span class="curr-price">₹999</span><span class="old-price">₹1999</span></div>
+                <ul class="features-list">
+                  <li><i class="fas fa-check"></i> FPS Boost for Free Fire</li>
+                  <li><i class="fas fa-check"></i> Input Lag Fix</li>
+                  <li><i class="fas fa-check"></i> Windows Optimization</li>
+                              <li><i class="fas fa-check"></i> Msi and BlueStacks Fps Optimization With Applications</li>
+                </ul>
+                <a href="#" class="purchase-btn shop-card-btn-premium">PURCHASE</a>
               </div>
             </div>
-
-            <!-- Editing Tips -->
-            <div class="shop-card-integrated">
-              <div class="card-top">
-                <div class="card-icon edit-icon">
-                  <i class="fas fa-scissors"></i>
-                </div>
-                <div class="pill-badge red">ADVANCED</div>
-              </div>
-              <h3 class="shop-card-title">YT SHORTS EDITING TIPS</h3>
-              <p class="shop-card-desc">High-end vertical editing using <strong>CapCut × Premiere Pro</strong>.</p>
-              <div class="card-footer">
-                <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?usp=pp_url&entry.SERVICE_ID=YT+SHORTS+EDITING+TIPS+(Advanced)" target="_blank" class="shop-card-btn-premium">
-                  <i class="fas fa-shopping-cart"></i> BUY NOW
-                </a>
+            <div class="shop-card-premium-v2">
+              <div class="card-image"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800" alt="Video Editing"><div class="image-badge edit">ADVANCED</div></div>
+              <div class="card-content-premium-v2">
+                <div class="card-tag">LIMITED TIME OFFER </div>
+                <h3 class="card-title">YT SHORTS EDITING TIPS</h3>
+                <div class="price-row-v2"><span class="curr-price">₹599</span><span class="old-price">₹999</span></div>
+                <ul class="features-list">
+                  <li><i class="fas fa-check"></i> Editing & Effects</li>
+                  <li><i class="fas fa-check"></i> Color Grading</li>
+                  <li><i class="fas fa-check"></i> Viral Hashtag And Tags</li>
+                  <li><i class="fas fa-check"></i> Export Settings</li>
+                </ul>
+                <a href="#" class="purchase-btn shop-card-btn-premium">PURCHASE</a>
               </div>
             </div>
           </div>
@@ -208,95 +167,37 @@
       </section>
 
       <!-- ---- SECTION: Live Analytics ---- -->
-      <section class="section" id="analytics">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title"><i class="fas fa-chart-line"></i> Live Network Growth</h2>
-            <p class="section-sub">Real-time stats across all platforms.</p>
-          </div>
-          <span class="section-badge pulse-badge">● LIVE</span>
-        </div>
-
-        <div class="counters-grid">
-
-          <div class="counter-card glass-card" data-target="4700000" data-suffix="M" data-divisor="1000000" id="counterYT">
-            <div class="counter-top">
-              <div class="counter-icon yt-icon"><i class="fab fa-youtube"></i></div>
-              <span class="counter-growth positive">+12% <i class="fas fa-arrow-trend-up"></i></span>
+      <section class="section scroll-reveal" id="analytics">
+        <div class="analytics-container-glass glass-card">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title"><i class="fas fa-chart-line"></i> Live Network Growth</h2>
+              <p class="section-sub">Real-time stats across all platforms.</p>
             </div>
-            <div class="counter-number" data-count="4.7" data-suffix="M">0M</div>
-            <div class="counter-label">YouTube Subscribers</div>
-            <div class="counter-sparkline">
-              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
-                <polyline points="0,25 15,20 30,22 45,12 60,8 80,3" fill="none" stroke="var(--yt-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
+            <span class="section-badge pulse-badge">● LIVE</span>
           </div>
 
-          <div class="counter-card glass-card" data-target="1200000" id="counterIG">
-            <div class="counter-top">
-              <div class="counter-icon ig-icon"><i class="fab fa-instagram"></i></div>
-              <span class="counter-growth positive">+8.5% <i class="fas fa-arrow-trend-up"></i></span>
+          <div class="counters-grid">
+            <div class="counter-card glass-card" data-target="4700000" id="counterYT">
+              <div class="counter-top"><div class="counter-icon yt-icon"><i class="fab fa-youtube"></i></div></div>
+              <div class="counter-number">4.7M</div>
+              <div class="counter-label">Subscribers</div>
             </div>
-            <div class="counter-number" data-count="1.2" data-suffix="M">0M</div>
-            <div class="counter-label">Instagram Followers</div>
-            <div class="counter-sparkline">
-              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
-                <polyline points="0,28 15,22 30,18 45,15 60,10 80,5" fill="none" stroke="var(--ig-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+            <div class="counter-card glass-card" data-target="1200000" id="counterIG">
+              <div class="counter-top"><div class="counter-icon ig-icon"><i class="fab fa-instagram"></i></div></div>
+              <div class="counter-number">1.2M</div>
+              <div class="counter-label">Followers</div>
             </div>
-          </div>
-
-          <div class="counter-card glass-card" id="counterViews">
-            <div class="counter-top">
-              <div class="counter-icon views-icon"><i class="fas fa-eye"></i></div>
-              <span class="counter-growth positive">+24% <i class="fas fa-arrow-trend-up"></i></span>
+            <div class="counter-card glass-card" data-target="45000000" id="counterViews">
+              <div class="counter-top"><div class="counter-icon views-icon"><i class="fas fa-eye"></i></div></div>
+              <div class="counter-number">45M</div>
+              <div class="counter-label">Total Views</div>
             </div>
-            <div class="counter-number" data-count="45" data-suffix="M">0M</div>
-            <div class="counter-label">Total Views</div>
-            <div class="counter-sparkline">
-              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
-                <polyline points="0,26 15,22 30,15 45,10 60,6 80,2" fill="none" stroke="var(--views-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+            <div class="counter-card glass-card" data-target="250000" id="counterTT">
+              <div class="counter-top"><div class="counter-icon tt-icon"><i class="fab fa-tiktok"></i></div></div>
+              <div class="counter-number">250K</div>
+              <div class="counter-label">TikTok Fans</div>
             </div>
-          </div>
-
-          <div class="counter-card glass-card" id="counterTT">
-            <div class="counter-top">
-              <div class="counter-icon tt-icon"><i class="fab fa-tiktok"></i></div>
-              <span class="counter-growth positive">+5% <i class="fas fa-arrow-trend-up"></i></span>
-            </div>
-            <div class="counter-number" data-count="250" data-suffix="K">0K</div>
-            <div class="counter-label">TikTok Followers</div>
-            <div class="counter-sparkline">
-              <svg viewBox="0 0 80 30" preserveAspectRatio="none">
-                <polyline points="0,27 15,24 30,20 45,16 60,11 80,7" fill="none" stroke="var(--tt-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-      <!-- ---- SECTION: Collaborate CTA ---- -->
-      <section class="section cta-section" id="collaborate">
-        <div class="cta-card glass-card">
-          <div class="cta-glow"></div>
-          <div class="cta-content">
-            <span class="cta-eyebrow"><i class="fas fa-handshake"></i> Open to Opportunities</span>
-            <h2 class="cta-title">Collaborate with <span class="gradient-text">ZEROTH YT</span></h2>
-            <p class="cta-desc">Currently open for brand sponsorships, esports partnerships, event hosting, and exclusive content collabs. Let's build something epic together.</p>
-            <div class="cta-buttons">
-              <a href="mailto:zerothgaming09@gmail.com" class="cta-primary-btn" id="proposalBtn">
-                <i class="fas fa-paper-plane"></i> Send a Proposal
-              </a>              <a href="https://www.facebook.com/profile.php?id=61576598806134" target="_blank" class="cta-secondary-btn schedule-call-btn" id="scheduleBtn">
-                <i class="fab fa-facebook"></i> Schedule a Call
-              </a>
-            </div>
-          </div>
-          <div class="cta-decoration">
-            <i class="fas fa-gamepad cta-deco-icon"></i>
           </div>
         </div>
       </section>
@@ -310,10 +211,10 @@
               <div class="brand-text">
                 <span class="footer-title">ZEROTH YT</span>
                 <span class="footer-social-mini">
-                  <a href="https://www.youtube.com/@zerothyt10" target="_blank"><i class="fab fa-youtube"></i></a>
-                  <a href="https://www.instagram.com/iamzeroth" target="_blank"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.tiktok.com/@zeroth_ff" target="_blank"><i class="fab fa-tiktok"></i></a>
-                  <a href="https://discord.gg/7YnnNcB7RB" target="_blank"><i class="fab fa-discord"></i></a>
+                  <a href="https://www.youtube.com/@zerothyt10" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+                  <a href="https://www.instagram.com/iamzeroth" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@zeroth_ff" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                  <a href="https://discord.gg/7YnnNcB7RB" target="_blank" class="discord"><i class="fab fa-discord"></i></a>
                 </span>
               </div>
             </div>
@@ -327,9 +228,6 @@
                 <a href="#">Media Kit</a>
                 <a href="#">Support</a>
               </div>
-              <button class="back-to-top" id="backToTop" title="Back to top">
-                <i class="fas fa-chevron-up"></i>
-              </button>
             </div>
           </div>
         </div>
@@ -338,105 +236,106 @@
     </main>
   </div>
 
-  <!-- Mobile Nav Bar -->
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="#sidebar" class="mobile-nav-item active" id="navProfile">
-      <i class="fas fa-user"></i>
-      <span>Profile</span>
-    </a>
-    <a href="#socialHub" class="mobile-nav-item" id="navSocial">
-      <i class="fas fa-share-alt"></i>
-      <span>Social</span>
-    </a>
-    <a href="#officialShop" class="mobile-nav-item" id="navShop">
-      <i class="fas fa-shopping-cart"></i>
-      <span>Shop</span>
-    </a>
-    <a href="#analytics" class="mobile-nav-item" id="navStats">
-      <i class="fas fa-chart-line"></i>
-      <span>Stats</span>
-    </a>
 
-    <a href="#collaborate" class="mobile-nav-item" id="navConnect">
-      <i class="fas fa-handshake"></i>
-      <span>Connect</span>
-    </a>
-  </nav>
-
-  <!-- ===== ORDER FORM MODAL ===== -->
+  <!-- ===== EXECUTIVE ORDER MODAL ===== -->
   <div class="order-modal-overlay" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
-    <div class="order-modal glass-card">
-      <button class="order-modal-close" id="orderModalClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="order-modal">
+      <button class="order-modal-close" id="orderModalClose" aria-label="Close">&times;</button>
 
       <!-- Form View -->
       <div class="order-form-view" id="orderFormView">
-        <div class="order-modal-header">
-          <div class="order-service-badge" id="orderServiceBadge">
-            <i class="fas fa-microchip"></i>
-            <span id="orderServiceName">PC OPTIMIZATION MAX</span>
-            <div class="modal-price-tag">$10</div>
-          </div>
-          <h2 class="order-modal-title" id="orderModalTitle">Place Your Order</h2>
-          <p class="order-modal-sub">Fill in your details and we'll contact you shortly.</p>
+        <div class="order-service-badge" id="orderServiceBadge">
+          <span id="orderServiceName">PC OPTIMIZATION MAX</span>
+          <span class="modal-price-tag" id="orderServicePrice">RS 999</span>
         </div>
+        <h2 class="order-modal-title" id="orderModalTitle">Place Your Order</h2>
+        <p class="order-modal-sub">Fill in your details and we'll contact you shortly.</p>
+
         <form class="order-form" id="orderForm" novalidate>
           <div class="order-form-group">
             <label for="orderName"><i class="fas fa-user"></i> Full Name</label>
-            <input type="text" id="orderName" name="name" placeholder="Your full name" required autocomplete="name" />
+            <input type="text" id="orderName" name="name" placeholder="" required autocomplete="name" />
           </div>
           <div class="order-form-group">
             <label for="orderEmail"><i class="fas fa-envelope"></i> Email Address</label>
-            <input type="email" id="orderEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+            <input type="email" id="orderEmail" name="email" required autocomplete="email" />
           </div>
           <div class="order-form-group">
             <label for="orderPhone"><i class="fab fa-whatsapp"></i> WhatsApp / Phone</label>
-            <input type="tel" id="orderPhone" name="phone" placeholder="+977 XXXXXXXXXX" required autocomplete="tel" />
+            <input type="tel" id="orderPhone" name="phone" placeholder="+977 123-456789" required autocomplete="tel" pattern="[0-9+ \-]+" title="Please enter a valid phone number (numbers, +, - only)" />
           </div>
           <div class="order-form-group">
             <label for="orderNotes"><i class="fas fa-comment-dots"></i> Additional Notes</label>
-            <textarea id="orderNotes" name="notes" rows="3" placeholder="Any special requirements or questions..."></textarea>
+            <textarea id="orderNotes" name="notes" placeholder="Any specific requirements..."></textarea>
           </div>
           <button type="submit" class="order-submit-btn" id="orderSubmitBtn">
             <i class="fas fa-paper-plane"></i> Submit Order
           </button>
         </form>
+        <p class="confirm-note"><i class="fas fa-lock"></i> Your details are safe and never shared</p>
       </div>
 
       <!-- Confirmation View -->
       <div class="order-confirm-view" id="orderConfirmView" hidden>
-        <div class="confirm-icon-ring">
+        <div class="confirm-success-icon">
           <i class="fas fa-check-circle"></i>
         </div>
-        <h2 class="confirm-title">Order Received! 🎉</h2>
-        <p class="confirm-sub">Here's your order summary:</p>
-        <div class="confirm-details-card">
-          <div class="confirm-row">
-            <span class="confirm-label"><i class="fas fa-hashtag"></i> Order ID</span>
-            <span class="confirm-value" id="confirmOrderId">—</span>
+        <h2 class="confirm-title">Order Received</h2>
+        <p class="confirm-subtitle">Thank you for choosing Zeroth YT. Your services are being processed.</p>
+
+        <div class="transaction-card">
+          <div class="trans-header">
+            <span>TRANSACTION SUMMARY</span>
+            <span class="paid-badge">PROCESSING</span>
           </div>
-          <div class="confirm-row">
-            <span class="confirm-label"><i class="fas fa-user"></i> Name</span>
-            <span class="confirm-value" id="confirmName">—</span>
-          </div>
-          <div class="confirm-row">
-            <span class="confirm-label"><i class="fas fa-envelope"></i> Email</span>
-            <span class="confirm-value" id="confirmEmail">—</span>
-          </div>
-          <div class="confirm-row">
-            <span class="confirm-label"><i class="fab fa-whatsapp"></i> WhatsApp</span>
-            <span class="confirm-value" id="confirmPhone">—</span>
-          </div>
-          <div class="confirm-row">
-            <span class="confirm-label"><i class="fas fa-box"></i> Service</span>
-            <span class="confirm-value" id="confirmService">—</span>
-          </div>
-          <div class="confirm-row">
-            <span class="confirm-label"><i class="fas fa-clock"></i> Ordered</span>
-            <span class="confirm-value" id="confirmTime">—</span>
+          
+          <div class="trans-body">
+            <div class="trans-row">
+              <div class="trans-col">
+                <label>ORDER ID</label>
+                <strong id="confirmOrderId">#ZYT-0000</strong>
+              </div>
+              <div class="trans-col text-right">
+                <label>DATE</label>
+                <strong id="confirmTime">Oct 24, 2023</strong>
+              </div>
+            </div>
+
+            <div class="trans-row">
+              <div class="trans-col">
+                <label>SERVICE</label>
+                <strong id="confirmService">PC Optimization Max</strong>
+              </div>
+              <div class="trans-col text-right">
+                <label>AMOUNT</label>
+                <strong class="amount-text" id="confirmServicePrice">₹999.00</strong>
+              </div>
+            </div>
+
+            <div class="trans-divider"></div>
+
+            <div class="client-info-box">
+              <div class="client-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="client-details">
+                <strong id="confirmName">Alex Thompson</strong>
+                <span id="confirmEmail">alex.t@example.com</span>
+              </div>
+            </div>
           </div>
         </div>
-        <p class="confirm-note">We'll contact you via WhatsApp/Email within <strong>24 hours</strong>. 🙏</p>
-        <button class="order-done-btn" id="orderDoneBtn"><i class="fas fa-home"></i> Back to Site</button>
+
+        <button class="confirm-done-btn" id="orderDoneBtn">RETURN TO SITE</button>
+
+        <div class="confirm-mail-notice">
+          <i class="fas fa-envelope"></i>
+          <span>Please check your <strong>Gmail</strong> inbox (and spam) for the confirmation link and next steps.</span>
+        </div>
+
+        <div class="confirm-footer">
+          © 2026 ZEROTH YT SECURE CHECKOUT
+        </div>
       </div>
 
     </div>
