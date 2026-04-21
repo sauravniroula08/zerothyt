@@ -1589,22 +1589,22 @@ body {
 }
 
 /* ========== BEFORE/AFTER COMPARISON SECTION ========== */
+/* ========== CLEAN BEFORE/AFTER COMPARISON ========== */
 .comparison-wrapper {
   position: relative;
   display: flex;
   width: 100%;
   aspect-ratio: 16/9;
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  border: 8px solid rgba(255,255,255,0.1);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 4px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   background: #000;
 }
 
 .comp-side {
   position: relative;
   flex: 1;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1621,16 +1621,17 @@ body {
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 14px;
+  width: 10px;
   background: #a855f7;
   transform: translateX(-50%);
-  z-index: 30;
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
+  z-index: 50;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
 }
 
+/* Centralized Labels */
 .comp-label {
   position: absolute;
-  top: 10%;
+  top: 15%;
   width: 100%;
   text-align: center;
   font-family: 'Poppins', sans-serif;
@@ -1638,68 +1639,61 @@ body {
   font-size: 2.2rem;
   color: #fff;
   text-transform: uppercase;
-  z-index: 50;
+  z-index: 40;
   letter-spacing: 2px;
-  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  text-shadow: 0 4px 15px rgba(0,0,0,0.9);
   pointer-events: none;
 }
 
-.before-label { left: 0; }
-.after-label { right: 0; }
+/* Corner FPS Badges */
+.comp-fps {
+  position: absolute;
+  top: 20px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  z-index: 60;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
 
+.fps-low {
+  left: 20px;
+  color: #ff5e5e;
+}
+
+.fps-high {
+  right: 20px;
+  color: #2eff8c;
+  box-shadow: 0 0 15px rgba(46, 255, 140, 0.3);
+}
+
+/* Reaction Emojis */
 .comp-emoji {
   position: absolute;
   bottom: 25px;
   font-size: 5rem;
-  z-index: 20;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+  z-index: 40;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
 }
 
 .left-emoji { left: 25px; }
 .right-emoji { right: 25px; }
 
-.comp-fps {
-  position: absolute;
-  top: 25px;
-  background: rgba(0,0,0,0.6);
-  padding: 5px 12px;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #fff;
-  z-index: 60;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.fps-low {
-  left: 25px;
-  color: #ff5e5e;
-}
-
-.fps-high {
-  right: 25px;
-  color: #2eff8c;
-  box-shadow: 0 0 15px rgba(46, 255, 140, 0.4);
-  animation: fpsPulseLight 2s infinite;
-}
-
-@keyframes fpsPulseLight {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
-
-@keyframes fpsGlow {
-  0%, 100% { box-shadow: 0 10px 30px rgba(46, 255, 140, 0.5); transform: scale(1); }
-  50% { box-shadow: 0 10px 50px rgba(46, 255, 140, 0.8); transform: scale(1.02); }
-}
+.float-anim { animation: floatEmoji 4s infinite ease-in-out; }
 
 @keyframes floatEmoji {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
 }
 
-.float-anim { animation: floatEmoji 4s infinite ease-in-out; }
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
 
 
 /* Responsive adjustments */
