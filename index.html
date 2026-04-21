@@ -233,67 +233,44 @@
         <p class="confirm-note"><i class="fas fa-lock"></i> Your details are safe and never shared</p>
       </div>
 
-      <!-- Confirmation View -->
+      <!-- Success View (More Professional / Less Text) -->
       <div class="order-confirm-view" id="orderConfirmView" hidden>
-        <div class="confirm-success-icon">
-          <i class="fas fa-check-circle"></i>
-        </div>
+        <div class="confirm-success-icon"><i class="fas fa-check"></i></div>
         <h2 class="confirm-title">Order Received</h2>
-        <p class="confirm-subtitle">Thank you for choosing Zeroth YT. Your services are being processed.</p>
-
+        
         <div class="transaction-card">
-          <div class="trans-header">
-            <span>TRANSACTION SUMMARY</span>
-            <span class="paid-badge">PROCESSING</span>
+          <div class="trans-row">
+            <label>Order</label>
+            <strong id="confirmService">PC OPTIMIZATION MAX</strong>
           </div>
-          
-          <div class="trans-body">
-            <div class="trans-row">
-              <div class="trans-col">
-                <label>ORDER ID</label>
-                <strong id="confirmOrderId">#ZYT-0000</strong>
-              </div>
-              <div class="trans-col text-right">
-                <label>DATE</label>
-                <strong id="confirmTime">Oct 24, 2023</strong>
-              </div>
-            </div>
+          <div class="trans-row">
+            <label>ID</label>
+            <strong id="confirmOrderId">ZEA-789</strong>
+          </div>
+          <div class="trans-row">
+            <label>Amount</label>
+            <strong class="amount-text" id="confirmServicePrice">₹999</strong>
+          </div>
 
-            <div class="trans-row">
-              <div class="trans-col">
-                <label>SERVICE</label>
-                <strong id="confirmService">PC Optimization Max</strong>
-              </div>
-              <div class="trans-col text-right">
-                <label>AMOUNT</label>
-                <strong class="amount-text" id="confirmServicePrice">₹999.00</strong>
-              </div>
-            </div>
+          <div class="trans-divider"></div>
 
-            <div class="trans-divider"></div>
-
-            <div class="client-info-box">
-              <div class="client-avatar">
-                <i class="fas fa-user"></i>
-              </div>
-              <div class="client-details">
-                <strong id="confirmName">Alex Thompson</strong>
-                <span id="confirmEmail">alex.t@example.com</span>
-              </div>
+          <div class="client-info-box">
+            <div class="client-avatar"><i class="fas fa-user"></i></div>
+            <div class="client-details">
+              <strong id="confirmName">Saurav Niroula</strong>
+              <span id="confirmEmail">saurav@example.com</span>
             </div>
           </div>
         </div>
 
-        <button class="confirm-done-btn" id="orderDoneBtn">RETURN TO SITE</button>
+        <button class="confirm-done-btn" id="orderDoneBtn">CONTINUE</button>
 
         <div class="confirm-mail-notice">
           <i class="fas fa-envelope"></i>
-          <span>Please check your <strong>Gmail</strong> inbox (and spam) for the confirmation link and next steps.</span>
+          <span>Check your <strong>Gmail</strong> for the next steps.</span>
         </div>
 
-        <div class="confirm-footer">
-          © 2026 ZEROTH YT SECURE CHECKOUT
-        </div>
+        <div class="confirm-footer">SECURE CHECKOUT</div>
       </div>
 
     </div>
