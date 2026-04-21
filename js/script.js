@@ -23,80 +23,7 @@
   document.querySelectorAll('.fade-in-item').forEach(el => observer.observe(el));
 })();
 
-/* ---- Counter Animation ---- */
-(function initCounters() {
-  const counterCards = document.querySelectorAll('.counter-card');
-  let triggered = false;
 
-  function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
-
-  function animateCounter(el, target, suffix, duration = 2000) {
-    const numEl = el.querySelector('.counter-number');
-    if (!numEl) return;
-    const start = performance.now();
-
-    function step(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = easeOutQuart(progress);
-      const current = target * eased;
-
-      // Format the number
-      let display;
-      if (suffix === 'M') {
-        display = current.toFixed(current < 10 ? 1 : 0) + 'M';
-      } else if (suffix === 'K') {
-        display = Math.round(current) + 'K';
-      } else {
-        display = Math.round(current).toLocaleString();
-      }
-      numEl.textContent = display;
-
-      if (progress < 1) requestAnimationFrame(step);
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  const counterConfig = [
-    { id: 'counterYT',    target: 4.7,  suffix: 'M' },
-    { id: 'counterIG',    target: 1.2,  suffix: 'M' },
-    { id: 'counterViews', target: 45,   suffix: 'M' },
-    { id: 'counterTT',    target: 250,  suffix: 'K' },
-  ];
-
-  const observer = new IntersectionObserver((entries) => {
-    if (triggered) return;
-    const ent = entries[0];
-    if (ent.isIntersecting) {
-      triggered = true;
-      counterConfig.forEach(c => {
-        const el = document.getElementById(c.id);
-        if (el) animateCounter(el, c.target, c.suffix);
-      });
-      // Start live sub tick
-      setTimeout(initLiveSubTick, 2500);
-      observer.disconnect();
-    }
-  }, { threshold: 0.3 });
-
-  function initLiveSubTick() {
-    const ytEl = document.getElementById('counterYT')?.querySelector('.counter-number');
-    if (!ytEl) return;
-    setInterval(() => {
-      let current = parseFloat(ytEl.textContent);
-      if (isNaN(current)) return;
-      // Random sub increase
-      if (Math.random() > 0.8) {
-        current += 0.1;
-        ytEl.textContent = current.toFixed(1) + 'M';
-      }
-    }, 4000);
-  }
-
-  const analyticsSection = document.getElementById('analytics');
-  if (analyticsSection) observer.observe(analyticsSection);
-})();
 
 /* ---- Mobile Nav Active State ---- */
 (function initMobileNav() {
@@ -104,7 +31,6 @@
     { navId: 'navProfile',  sectionId: 'sidebar' },
     { navId: 'navSocial',   sectionId: 'socialHub' },
     { navId: 'navShop',     sectionId: 'officialShop' },
-    { navId: 'navStats',    sectionId: 'analytics' },
     { navId: 'navConnect',  sectionId: 'collaborate' },
   ];
 

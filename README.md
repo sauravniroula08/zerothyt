@@ -1,17 +1,17 @@
 # ZEROTH YT Portfolio
 
-Official portfolio hub for **Zeroth YT** — Featuring social hub, digital shop, and real-time growth analytics.
+Official portfolio hub for **Zeroth YT** — Featuring social hub and digital shop.
 
 ## 🚀 Features
 - **Social Hub:** Quick access to YouTube, Instagram, Discord, and TikTok.
 - **Official Shop:** Premium PC optimization and video editing services.
-- **Analytics Dashboard:** Real-time subscriber and view counters.
+
 - **Premium Design:** Glassmorphism UI, high-fidelity animations, and full mobile responsiveness.
 
 ## 📦 Folder Structure
 - `index.html`: Main Landing Page (Social Hub + Bio)
 - `shop.html`: Official Shop Page
-- `analytics.html`: Creator Analytics Dashboard
+
 - `css/`: Stylesheets and design tokens
 - `js/`: Frontend logic and interaction scripts
 - `img/`: Brand assets and logo
