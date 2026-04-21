@@ -1630,7 +1630,7 @@ body {
 
 .comp-label {
   position: absolute;
-  top: 18%;
+  top: 10%;
   width: 100%;
   text-align: center;
   font-family: 'Poppins', sans-serif;
@@ -1644,57 +1644,50 @@ body {
   pointer-events: none;
 }
 
-.before-label {
-  left: 0;
-}
-
-.after-label {
-  right: 0;
-  color: #fff;
-  -webkit-text-stroke: 1.5px #a855f7;
-  text-shadow: 0 0 30px rgba(168, 85, 247, 1), 0 0 60px rgba(168, 85, 247, 0.4);
-}
+.before-label { left: 0; }
+.after-label { right: 0; }
 
 .comp-emoji {
   position: absolute;
-  bottom: 80px;
-  font-size: 7rem;
+  bottom: 25px;
+  font-size: 5rem;
   z-index: 20;
-  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
 }
 
-.left-emoji { left: 30px; }
-.right-emoji { right: 30px; }
+.left-emoji { left: 25px; }
+.right-emoji { right: 25px; }
 
 .comp-fps {
   position: absolute;
-  bottom: 15px;
-  width: calc(100% - 60px);
-  max-width: 200px;
-  padding: 12px 5px;
-  border-radius: 12px;
-  font-weight: 900;
-  font-size: 1.8rem;
-  text-align: center;
+  top: 25px;
+  background: rgba(0,0,0,0.6);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1.1rem;
   color: #fff;
-  text-transform: uppercase;
-  z-index: 40;
-  letter-spacing: -0.5px;
+  z-index: 60;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .fps-low {
-  left: 15px;
-  background: #ff5e5e;
-  box-shadow: 0 5px 15px rgba(255, 94, 94, 0.4);
+  left: 25px;
+  color: #ff5e5e;
 }
 
 .fps-high {
-  right: 15px;
-  background: #2eff8c;
-  color: #fff;
-  box-shadow: 0 5px 20px rgba(46, 255, 140, 0.5);
-  animation: fpsGlow 2s infinite ease-in-out;
+  right: 25px;
+  color: #2eff8c;
+  box-shadow: 0 0 15px rgba(46, 255, 140, 0.4);
+  animation: fpsPulseLight 2s infinite;
 }
+
+@keyframes fpsPulseLight {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
 
 @keyframes fpsGlow {
   0%, 100% { box-shadow: 0 10px 30px rgba(46, 255, 140, 0.5); transform: scale(1); }
