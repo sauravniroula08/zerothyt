@@ -1617,6 +1617,14 @@ body {
   object-fit: cover;
 }
 
+.side-before .comp-img {
+  filter: sepia(0.3) saturate(0.8) hue-rotate(-20deg) blur(1.5px);
+}
+
+.side-after .comp-img {
+  filter: brightness(1.1) contrast(1.1) saturate(1.2);
+}
+
 .comp-divider {
   position: absolute;
   left: 50%;
