@@ -233,29 +233,24 @@
         <p class="confirm-note"><i class="fas fa-lock"></i> Your details are safe and never shared</p>
       </div>
 
-      <!-- Success View (More Professional / Less Text) -->
+      <!-- Extreme Minimal Success View -->
       <div class="order-confirm-view" id="orderConfirmView" hidden>
         <div class="confirm-success-icon"><i class="fas fa-check"></i></div>
-        <h2 class="confirm-title">Order Received</h2>
         
         <div class="transaction-card">
           <div class="trans-row">
-            <label>Order</label>
-            <strong id="confirmService">PC OPTIMIZATION MAX</strong>
+            <strong><i class="fas fa-shopping-cart" style="margin-right: 8px; color: #a855f7;"></i><span id="confirmService">PC OPTIMIZATION MAX</span></strong>
           </div>
           <div class="trans-row">
-            <label>ID</label>
-            <strong id="confirmOrderId">ZEA-789</strong>
+             <strong><i class="fas fa-tag" style="margin-right: 8px; color: #ef4444;"></i><span class="amount-text" id="confirmServicePrice">₹999</span></strong>
           </div>
-          <div class="trans-row">
-            <label>Amount</label>
-            <strong class="amount-text" id="confirmServicePrice">₹999</strong>
+          <div class="trans-row" style="font-size: 0.7rem; opacity: 0.5;">
+            <span>ID: <span id="confirmOrderId">ZEA-789</span></span>
           </div>
 
           <div class="trans-divider"></div>
 
           <div class="client-info-box">
-            <div class="client-avatar"><i class="fas fa-user"></i></div>
             <div class="client-details">
               <strong id="confirmName">Saurav Niroula</strong>
               <span id="confirmEmail">saurav@example.com</span>
@@ -264,13 +259,6 @@
         </div>
 
         <button class="confirm-done-btn" id="orderDoneBtn">CONTINUE</button>
-
-        <div class="confirm-mail-notice">
-          <i class="fas fa-envelope"></i>
-          <span>Check your <strong>Gmail</strong> for the next steps.</span>
-        </div>
-
-        <div class="confirm-footer">SECURE CHECKOUT</div>
       </div>
 
     </div>
