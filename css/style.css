@@ -1661,14 +1661,15 @@ body {
 
 .fps-low {
   left: 20px;
-  color: #ff5e5e;
+  color: #fff;
 }
 
 .fps-high {
   right: 20px;
-  color: #2eff8c;
-  box-shadow: 0 0 15px rgba(46, 255, 140, 0.3);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
+
 
 /* Reaction Emojis */
 .comp-emoji {
