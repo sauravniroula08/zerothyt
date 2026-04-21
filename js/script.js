@@ -291,10 +291,19 @@
     };
 
     try {
+      // Use URLSearchParams for more reliable delivery
+      const params = new URLSearchParams();
+      for (const [key, value] of Object.entries(data)) {
+        params.append(key, value);
+      }
+
       const response = await fetch(`https://formsubmit.co/ajax/${ADMIN_EMAIL}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(data)
+        body: params,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
