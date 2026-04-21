@@ -140,7 +140,7 @@
                   <li><i class="fas fa-check"></i> Windows Optimization</li>
                               <li><i class="fas fa-check"></i> Msi and BlueStacks Fps Optimization With Applications</li>
                 </ul>
-                <a href="https://discord.gg/FsmaMfffm2" class="purchase-btn" target="_blank">PURCHASE</a>
+                <a href="#" class="purchase-btn shop-card-btn-premium">PURCHASE</a>
               </div>
             </div>
             <div class="shop-card-premium-v2">
@@ -154,7 +154,7 @@
                   <li><i class="fas fa-check"></i> Viral Hashtag And Tags</li>
                   <li><i class="fas fa-check"></i> Export Settings</li>
                 </ul>
-                <a href="https://discord.gg/FsmaMfffm2" class="purchase-btn" target="_blank">PURCHASE</a>
+                <a href="#" class="purchase-btn shop-card-btn-premium">PURCHASE</a>
               </div>
             </div>
           </div>
@@ -231,19 +231,15 @@
   </div>
 
 
-  <!-- ===== EXECUTIVE ORDER MODAL ===== -->
+  <!-- ===== ORDER FORM MODAL ===== -->
   <div class="order-modal-overlay" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
-    <div class="order-modal">
-      <button class="order-modal-close" id="orderModalClose" aria-label="Close">&times;</button>
+    <div class="order-modal glass-card">
+      <button class="order-modal-close" id="orderModalClose" aria-label="Close"><i class="fas fa-times"></i></button>
 
       <!-- Form View -->
       <div class="order-form-view" id="orderFormView">
-        <div class="order-service-badge" id="orderServiceBadge">
-          <span id="orderServiceName">PC OPTIMIZATION MAX</span>
-          <span class="modal-price-tag" id="orderServicePrice">RS 999</span>
-        </div>
         <h2 class="order-modal-title" id="orderModalTitle">Place Your Order</h2>
-        <p class="order-modal-sub">Fill in your details and we'll contact you shortly.</p>
+        <p class="order-modal-sub">Service: <span id="orderServiceName"></span> | Price: <span id="orderServicePrice"></span></p>
 
         <form class="order-form" id="orderForm" novalidate>
           <div class="order-form-group">
