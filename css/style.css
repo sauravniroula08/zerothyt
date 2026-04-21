@@ -1618,11 +1618,11 @@ body {
 }
 
 .side-before .comp-img {
-  filter: sepia(0.3) saturate(0.8) hue-rotate(-20deg) blur(1.5px);
+  filter: sepia(0.4) saturate(1.2) hue-rotate(-50deg) blur(2px) brightness(0.9);
 }
 
 .side-after .comp-img {
-  filter: brightness(1.1) contrast(1.1) saturate(1.2);
+  filter: brightness(1.15) contrast(1.1) saturate(1.3);
 }
 
 .comp-divider {
@@ -1630,7 +1630,7 @@ body {
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 8px;
+  width: 10px;
   background: #a855f7;
   transform: translateX(-50%);
   z-index: 50;
@@ -1669,21 +1669,17 @@ body {
   background: rgba(0,0,0,0.7) !important;
   backdrop-filter: blur(4px) !important;
   border: 1px solid rgba(255,255,255,0.2) !important;
-  color: #fff !important;
   box-shadow: none !important;
-  animation: none !important;
 }
 
 .fps-low {
   left: 20px !important;
-  right: auto !important;
-  bottom: auto !important;
+  color: #ff5e5e !important;
 }
 
 .fps-high {
   right: 20px !important;
-  left: auto !important;
-  bottom: auto !important;
+  color: #2eff8c !important;
 }
 
 /* Reaction Emojis */
@@ -1697,13 +1693,6 @@ body {
 
 .left-emoji { left: 25px; }
 .right-emoji { right: 25px; }
-
-.float-anim { animation: floatEmoji 4s infinite ease-in-out; }
-
-@keyframes floatEmoji {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
