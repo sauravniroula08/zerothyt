@@ -1625,11 +1625,11 @@ body {
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 12px;
+  width: 16px;
   background: #a855f7; /* Vibrant Purple */
   transform: translateX(-50%);
   z-index: 10;
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 50px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 1), 0 0 70px rgba(168, 85, 247, 0.6);
 }
 
 .comp-label {
@@ -1639,12 +1639,12 @@ body {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
-  font-size: 4rem;
+  font-size: 5rem;
   color: #fff;
   text-transform: uppercase;
   z-index: 5;
-  letter-spacing: 2px;
-  text-shadow: 0 0 30px rgba(0,0,0,0.9);
+  letter-spacing: 4px;
+  text-shadow: 0 0 40px rgba(0,0,0,1);
   pointer-events: none;
 }
 
@@ -1662,10 +1662,19 @@ body {
 .comp-emoji {
   position: absolute;
   bottom: 30px;
-  font-size: 6rem;
+  font-size: 6.5rem;
   z-index: 15;
-  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
   pointer-events: none;
+}
+
+.float-anim {
+  animation: floatEmoji 3s ease-in-out infinite;
+}
+
+@keyframes floatEmoji {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
 }
 
 .left-emoji {
