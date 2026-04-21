@@ -2421,3 +2421,37 @@ body {
   .order-modal { padding: 24px 20px; }
   .order-modal-title { font-size: 20px; }
 }
+
+/* FPS Badges */
+.comp-fps {
+  position: absolute;
+  top: 40%;
+  font-weight: 800;
+  font-size: 2.2rem;
+  padding: 10px 22px;
+  border-radius: 14px;
+  z-index: 20;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.3);
+  font-family: 'Poppins', sans-serif;
+}
+
+.fps-low {
+  left: 30px;
+  background: #ef4444; 
+  color: #fff;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.5);
+}
+
+.fps-high {
+  right: 30px;
+  background: #22c55e;
+  color: #fff;
+  box-shadow: 0 0 40px rgba(34, 197, 94, 0.7);
+  animation: fpsPulse 2s infinite;
+}
+
+@keyframes fpsPulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.08); filter: brightness(1.2); }
+}
