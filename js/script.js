@@ -228,13 +228,18 @@
       const isPC = title.includes('PC');
       const priceText = card.querySelector('.curr-price').textContent;
       
-      serviceNameText.textContent = title;
+      if (serviceNameText) serviceNameText.textContent = title;
       if (servicePriceText) servicePriceText.textContent = priceText;
-      serviceBadge.className = `order-service-badge ${isPC ? 'pc' : 'edit'}`;
+      if (serviceBadge) serviceBadge.className = `order-service-badge ${isPC ? 'pc' : 'edit'}`;
       
-      orderForm.reset();
-      formView.hidden = false;
-      confirmView.hidden = true;
+      const orderForm = document.getElementById('orderForm');
+      if (orderForm) orderForm.reset();
+      
+      const formView = document.getElementById('orderFormView');
+      const confirmView = document.getElementById('orderConfirmView');
+      if (formView) formView.hidden = false;
+      if (confirmView) confirmView.hidden = true;
+      
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
